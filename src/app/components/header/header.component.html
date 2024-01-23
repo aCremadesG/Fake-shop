@@ -1,0 +1,37 @@
+<header>
+    <nav class="px-3">
+        <div class="py-2 flex justify-between border-b-2 border-slate-200">
+            <div class="flex items-baseline">
+                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded" (click)="open = true">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="pl-3">
+                    <i class="fa-solid fa-store fa-2xl"></i>
+                    <label class="text-2xl">Fake Store</label>
+                </div>
+            </div>
+            <div>
+                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+<div [ngClass]="open ? 'w-64' : 'w-0'" class="flex flex-col items-baseline h-full fixed z-1 top-0 left-0 bg-white dark:bg-black overflow-x-hidden pt-6 duration-500" >
+    <button class="p-3 " (click)="open = false">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="w-full flex flex-col">
+        <label class="border-y-2 border-slate-300 p-3 size-full duration-300">Categories</label>
+        <a class="p-3 size-full duration-300" href="#">CLothes</a>
+        <a class="p-3 size-full duration-300" href="#">Electronics</a>
+        <a class="p-3 size-full duration-300" href="#">Furniture</a>
+    </div>
+    <div class="w-full flex flex-col">
+        <label class="border-y-2 border-slate-300 p-3 size-full duration-300">Languages</label>
+    </div>
+</div>
