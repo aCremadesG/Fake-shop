@@ -1,35 +1,63 @@
 <header>
     <nav class="px-3">
-        <div class="py-2 flex justify-between border-b-2 border-slate-200">
-            <div class="flex items-baseline">
-                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded" (click)="open = true">
+        <div class="py-2 flex items-center justify-between">
+            <div class="flex items-end min-w-48">
+                <button class="block md:hidden px-3 py-2 m-2 border-yellow-200 bg-yellow-300 border-2 rounded" (click)="open = true">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="pl-3">
-                    <i class="fa-solid fa-store fa-2xl"></i>
-                    <label class="text-2xl">Fake Store</label>
+                <div class="pl-3 md:p-0">
+                    <a (click)="redirectTo('')" class="flex flex-row items-end cursor-pointer py-2">
+                        <div class="py-2 cursor-pointer">
+                            <i class="fa-solid fa-store fa-2xl"></i>
+                        </div>
+                        <label class="text-2xl cursor-pointer">Fake Store</label>
+                    </a>
                 </div>
             </div>
-            <div>
-                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded">
+            <div class="px-3 w-full hidden md:flex md:items-end">
+                <form [formGroup]="productsForm" (ngSubmit)="onSubmit()" class="w-full">
+                    <div class="flex h-11">
+                        <select formControlName="categoryId" class="h-full flex-shrink-0 inline-flex items-start py-2.5 px-4 text-sm font-medium text-start text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg
+                        hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white 
+                        dark:border-gray-600" name="category">
+                            <option value="">{{"HEADER.ALL_CATEGORIES" | translate}}</option>
+                            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                        </select>
+                        <div class="relative w-full">
+                            <input formControlName="title" type="search" id="search-dropdown" class="h-11 block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates...">
+                            <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-yellow-300 rounded-e-lg border border-gray-300 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                </svg>
+                                <span class="sr-only">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="flex items-end">
+                <button class="h-11 w-11 px-3 py-2 mx-1 border-yellow-200 bg-yellow-300 border-2 rounded">
                     <i class="fa-solid fa-user"></i>
                 </button>
-                <button class="px-3 py-2 border-yellow-200 bg-yellow-300 border-2 rounded">
+                <button class="h-11 w-11 px-3 py-2 mx-1 border-yellow-200 bg-yellow-300 border-2 rounded">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </button>
             </div>
         </div>
+        <div class="py-2 hidden md:block">
+            <ul class="flex items-center justify-around">
+                <li class="cursor-pointer" *ngFor="let category of categories" (click)="sectionDetail(category.id)">{{category.name}}</li>
+            </ul>
+        </div>
     </nav>
 </header>
-<div [ngClass]="open ? 'w-64' : 'w-0'" class="flex flex-col items-baseline h-full fixed z-1 top-0 left-0 bg-white dark:bg-black overflow-x-hidden pt-6 duration-500" >
-    <button class="p-3 " (click)="open = false">
+<div [ngClass]="open ? 'w-64' : 'w-0'" class="md:w-0 flex flex-col items-baseline h-full fixed z-50 top-0 left-0 bg-white dark:bg-black overflow-x-hidden pt-3 duration-500" >
+    <button class="p-3" (click)="open = false">
         <i class="fa-solid fa-xmark"></i>
     </button>
-    <div class="w-full flex flex-col">
+    <div class="w-full flex flex-col" *ngIf="categories.length > 0">
         <label class="border-y-2 border-slate-300 p-3 size-full duration-300">Categories</label>
-        <a class="p-3 size-full duration-300" href="#">CLothes</a>
-        <a class="p-3 size-full duration-300" href="#">Electronics</a>
-        <a class="p-3 size-full duration-300" href="#">Furniture</a>
+        <a class="cursor-pointer p-3 size-full duration-300" *ngFor="let category of categories" (click)="sectionDetail(category.id)">{{category.name}}</a>
     </div>
     <div class="w-full flex flex-col">
         <label class="border-y-2 border-slate-300 p-3 size-full duration-300">Languages</label>

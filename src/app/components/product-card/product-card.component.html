@@ -1,0 +1,7 @@
+<main class="flex flex-col pb-2 cursor-pointer" (click)="productDetail(product.id)">
+    <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
+        <img [src]="product.images[0]" alt="no image">
+    </div>
+    <label class="font-mono line-clamp-1">{{product.title}}</label>
+    <label class="font-mono">{{product.price}}€</label>
+</main>

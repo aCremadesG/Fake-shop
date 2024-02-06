@@ -1,0 +1,11 @@
+<main class="p-3 border-y-2 border-slate-200" *ngIf="section.products">
+    <div class="py-1 font-semibold text-base">
+        <label>{{section.title | translate}}</label>
+    </div>
+    <div class="columns-2 md:columns-4">
+        <app-product-card *ngFor="let product of section.products" [product]="product"></app-product-card>
+    </div>
+    <div class="py-1 text-sm">
+        <a (click)="redirectTo(section.url)" class="underline text-sky-500">{{section.urlTitle| translate }}</a>
+    </div>
+</main>

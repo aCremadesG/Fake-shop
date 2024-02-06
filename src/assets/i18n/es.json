@@ -1,0 +1,20 @@
+{
+    "HEADER": {
+        "ALL_CATEGORIES": "Todas las categorias"
+    },
+    "PRODUCT_CARD": {
+        "FOR_YOU": "Ofertas para ti",
+        "SEE_ALL": "Ver todas las ofertas"
+    },
+    "PRODUCT_PAGE": {
+        "BUY_SECTION": {
+            "TAXES": "Impuestos incluidos",
+            "AMOUNT": "Cantidad",
+            "AVAILABILITY" : "Disponibilidad",
+            "PAYMENT_ADVICE" : "Pago seguro por tarjeta, transferencia o contrareembolso",
+            "SHIPMENT_ADVICE" : "Envío gratuito desde 60.00 € de compra",
+            "GUARANTY_ADVICE" : "Garantía de devolución 15 días"
+        },
+        "DESCRIPTION": "Description"
+    }
+}

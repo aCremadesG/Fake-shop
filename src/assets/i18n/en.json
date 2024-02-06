@@ -1,0 +1,20 @@
+{
+    "HEADER": {
+        "ALL_CATEGORIES": "All categories"
+    },
+    "PRODUCT_CARD": {
+        "FOR_YOU": "Oferts for you",
+        "SEE_ALL": "See all the oferts"
+    },
+    "PRODUCT_PAGE": {
+        "BUY_SECTION": {
+            "TAXES": "Taxes included",
+            "AMOUNT": "Amount",
+            "AVAILABILITY" : "Availability",
+            "PAYMENT_ADVICE" : "Secure payment by card, transfer or cash on delivery",
+            "SHIPMENT_ADVICE" : "Free shipping from $60.00 purchase",
+            "GUARANTY_ADVICE" : "15-day money-back guarantee"
+        },
+        "DESCRIPTION": "Description"
+    }
+}
