@@ -1,0 +1,11 @@
+<button id="dropdown-button" class="h-11 w-11 px-3 py-2 mx-1 border-yellow-200 hover:bg-yellow-500 bg-yellow-300 border-2 rounded">
+    <i class="fa-solid fa-user"></i>
+</button>
+<div id="dropdown-list" class="absolute block opacity-0 bg-white divide-y divide-gray-100 overflow-y-auto w-40 right-4 rounded-lg shadow border border-gray-300 -z-10">
+    <div class="my-3 w-full flex">
+        <button class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500" (click)="openModal()">Log In</button>
+    </div>
+    <div class="my-3 w-full flex">
+        <button class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500" (click)="openModal()">Sign-In</button>
+    </div>
+</div>

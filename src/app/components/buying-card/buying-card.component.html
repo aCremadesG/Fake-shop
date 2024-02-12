@@ -15,9 +15,9 @@
         <div class="py-2 w-full">
             <label>{{"PRODUCT_PAGE.BUY_SECTION.AMOUNT" | translate}}:</label>
             <div>
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="py-4 md:py-0 px-2 border w-2/12 md:w-auto bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-s-lg quantity-add"><i class="fa-solid fa-minus"></i></button>
-                <input formControlName="amount" id="product-amount" class="py-4 md:py-0 appearance-none w-8/12 md:w-1/4 text-center border border-gray-300" type="number" required [value]="productAmount" min="1" >
-                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" id="subs-one" class="py-4 md:py-0 px-2 border w-2/12 md:w-auto bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-e-lg quantity-remove"><i class="fa-solid fa-plus"></i></button>
+                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="py-4 md:py-0 px-2 border w-2/12 md:w-auto bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-s-lg quantity-add"><i class="fa-solid fa-minus"></i></button>
+                <input formControlName="amount" id="product-amount" class="py-4 md:py-0 appearance-none w-8/12 md:w-1/4 text-center border border-gray-300" type="number" required [value]="productAmount" min="1" max="10">
+                <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" id="subs-one" class="py-4 md:py-0 px-2 border w-2/12 md:w-auto bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-e-lg quantity-remove"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
         <div>

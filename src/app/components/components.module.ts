@@ -11,6 +11,9 @@ import { BuyingCardComponent } from './buying-card/buying-card.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { ShoppingCartDropdownComponent } from './shopping-cart-dropdown/shopping-cart-dropdown.component';
+import { UserDropdownComponent } from './user-dropdown/user-dropdown.component';
+import { LogInToastComponent } from './log-in-toast/log-in-toast.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -24,7 +27,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductsGroupComponent,
     CarouselComponent,
     DropdownMenuComponent,
-    BuyingCardComponent
+    BuyingCardComponent,
+    ShoppingCartDropdownComponent,
+    UserDropdownComponent,
+    LogInToastComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductCardComponent,
     ProductsGroupComponent,
     CarouselComponent,
-    BuyingCardComponent
+    BuyingCardComponent,
+    ShoppingCartDropdownComponent,
+    UserDropdownComponent,
+    LogInToastComponent
   ]
 })
 export class ComponentsModule { }

@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-#dropdown-button:focus ~ #dropdown-list{
+#dropdown-button:focus ~ #dropdown-list,
+#dropdown-button ~ #dropdown-list:focus-within{
     @apply opacity-100;
+    @apply z-10;
 }
 
 @layer base {

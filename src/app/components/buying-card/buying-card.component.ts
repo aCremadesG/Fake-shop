@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BuyProduct } from 'src/app/interfaces/buy-product';
 import { Product } from 'src/app/interfaces/product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-buying-card',
@@ -9,6 +10,10 @@ import { Product } from 'src/app/interfaces/product';
   styleUrls: ['./buying-card.component.scss']
 })
 export class BuyingCardComponent {
+
+  constructor(
+    private cartService: CartService
+  ){}
 
   productAmount: number = 1;
 
@@ -25,8 +30,6 @@ export class BuyingCardComponent {
     if(this.productForm.value.amount) buyingProduct.amount = Number(this.productForm.value.amount);
     buyingProduct.product = this.product;
 
-    console.log(buyingProduct);
+    this.cartService.addToCart(buyingProduct);
   }
-
-  constructor(){}
 }
