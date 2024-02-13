@@ -15,21 +15,46 @@ export class BuyingCardComponent {
     private cartService: CartService
   ){}
 
-  productAmount: number = 1;
+  //productAmount: number = 1;
 
   productForm = new FormGroup({
-    amount: new FormControl("1", [
-      Validators.required,
-      Validators.min(this.productAmount)
+    amount: new FormControl(1, [
+      Validators.required
     ])
   });
   @Input() product = {} as Product;
 
   onSubmit(){
     let buyingProduct = {} as BuyProduct;
-    if(this.productForm.value.amount) buyingProduct.amount = Number(this.productForm.value.amount);
-    buyingProduct.product = this.product;
+    if(this.productForm.value.amount) {
+      buyingProduct.amount = Number(this.productForm.value.amount)
+      buyingProduct.product = this.product;
+      this.cartService.addToCart(buyingProduct);
+    };
+  }
 
-    this.cartService.addToCart(buyingProduct);
+  addAmount(){
+    if(this.productForm.value.amount){
+      if(this.productForm.value.amount < 10){
+        this.setAmount(this.productForm.value.amount + 1);
+        this.productForm.value.amount
+      }
+      return;
+    }
+    this.setAmount(1);
+  }
+
+  subAmount(){
+    if(this.productForm.value.amount){
+      if(this.productForm.value.amount > 1){
+        this.setAmount(this.productForm.value.amount - 1);
+        this.productForm.value.amount
+      }
+      return;
+    }
+  }
+
+  setAmount(value: number){
+    this.productForm.value.amount = value
   }
 }

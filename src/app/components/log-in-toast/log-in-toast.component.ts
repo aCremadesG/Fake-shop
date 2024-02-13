@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./log-in-toast.component.scss']
 })
 export class LogInToastComponent {
-
+  hidden: boolean = true;
 }

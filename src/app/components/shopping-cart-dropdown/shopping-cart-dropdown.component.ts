@@ -26,4 +26,13 @@ export class ShoppingCartDropdownComponent implements OnInit {
   deleteArrayProduct(productIndex: number){
     this.cartService.removeFromCart(productIndex);
   }
+
+  changeAmount(productIndex: number){
+    let productAmount = (document.getElementById("amount") as HTMLInputElement).value;
+    if(productAmount === '0'){
+      this.deleteArrayProduct(productIndex);
+      return;
+    }
+    this.cartService.changeQuantity(productIndex, Number(productAmount));
+  }
 }
