@@ -1,5 +1,6 @@
-<main class="p-3">
+<main class="p-3 min-h-screen">
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
     </div>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-scale-multiple" [fullScreen] = "true"><p style="color: white" > Getting products... </p></ngx-spinner>
 </main>

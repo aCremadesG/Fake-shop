@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-dropdown',
@@ -7,9 +7,9 @@ import { Component, Output } from '@angular/core';
 })
 export class UserDropdownComponent {
   
-  @Output() 
+  @Output() showForm = new EventEmitter<number>();
   
-  openModal(){
-
+  openForm(formType: number){
+    this.showForm.emit(formType);
   }
 }

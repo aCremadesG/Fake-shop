@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/classes/cart';
-import { BuyProduct } from 'src/app/interfaces/buy-product';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({

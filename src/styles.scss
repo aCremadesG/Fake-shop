@@ -5,7 +5,7 @@
 #dropdown-button:focus ~ #dropdown-list,
 #dropdown-button ~ #dropdown-list:focus-within{
     @apply opacity-100;
-    @apply z-10;
+    @apply z-20;
 }
 
 @layer base {

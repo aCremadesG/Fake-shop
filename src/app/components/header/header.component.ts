@@ -17,6 +17,8 @@ export class HeaderComponent {
     categoryId: new FormControl("")
   });
 
+  hiddenToast: Array<boolean> = [false, false]
+
   open: boolean = false;
   categories = [] as Category[]
   dropdownId: string = '';
@@ -56,5 +58,9 @@ export class HeaderComponent {
 
   checkString(controlString: string, key:string){
     return `${key}=${controlString}`
+  }
+
+  showForm(formType: number){
+    this.hiddenToast[formType] = !this.hiddenToast[formType];
   }
 }

@@ -16,5 +16,8 @@
             "GUARANTY_ADVICE" : "Garantía de devolución 15 días"
         },
         "DESCRIPTION": "Description"
+    },
+    "LOGIN": {
+        "FAILED_LOGIN": "Mail o contraseña incorrecto"
     }
 }

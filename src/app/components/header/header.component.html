@@ -37,7 +37,7 @@
             </div>
             <div class="flex items-end">
                 <div>
-                    <app-user-dropdown></app-user-dropdown>
+                    <app-user-dropdown (showForm)="showForm($event)"></app-user-dropdown>
                 </div>
                 <div>
                     <app-shopping-cart-dropdown></app-shopping-cart-dropdown>
@@ -63,4 +63,4 @@
         <label class="border-y-2 border-slate-300 p-3 size-full duration-300">Languages</label>
     </div>
 </div>
-<app-log-in-toast></app-log-in-toast>
+<app-log-in-toast (showForm)="showForm($event)" *ngIf="hiddenToast[0]"></app-log-in-toast>

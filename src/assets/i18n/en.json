@@ -16,5 +16,8 @@
             "GUARANTY_ADVICE" : "15-day money-back guarantee"
         },
         "DESCRIPTION": "Description"
+    },
+    "LOGIN": {
+        "FAILED_LOGIN": "Mail or password incorrect"
     }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { NewProduct } from '../interfaces/new-product';
 
@@ -17,7 +17,7 @@ export class ProductsService {
   ) { }
 
   getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}products`);
+    return this.http.get<Product[]>(`${this.apiUrl}products`).pipe(catchError(this.handleError));
   }
 
   getProduct(idProduct: string): Observable<Product> {
@@ -41,6 +41,12 @@ export class ProductsService {
   }
 
   filterProducts(filters: string): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}products/?${filters}`);
+    return this.http.get<Product[]>(`${this.apiUrl}products/?${filters}`).pipe(catchError(this.handleError));
+  }
+
+  private handleError(err: HttpErrorResponse): Observable<never> {
+    let errorMessage = `An error occurred: ${err.error.message}`;
+    console.error('err: ',err);
+    return throwError(() => errorMessage);
   }
 }

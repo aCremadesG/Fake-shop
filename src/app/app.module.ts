@@ -10,9 +10,10 @@ import { ProductComponent } from './pages/product/product.component';
 import { CartViewComponent } from './pages/cart-view/cart-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 import localeEs from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localeEs, 'es')
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

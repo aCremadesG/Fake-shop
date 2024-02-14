@@ -3,7 +3,6 @@ import { environment } from 'src/environments/environment';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
-import { NewUser } from '../interfaces/new-user';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +23,11 @@ export class UsersService {
     return this.http.get<User>(`${this.apiUrl}users/${idUser}`);
   }
 
-  createUser(user: NewUser): Observable<User> {
+  createUser(user: User): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}users/`, user);
   }
 
-  updateUser(idUser: number, user: NewUser): Observable<User> {
+  updateUser(idUser: number, user: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}users/${idUser}`, user);
   }
 
