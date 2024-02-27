@@ -3,6 +3,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 import { Category } from 'src/app/interfaces/category';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthjwtService } from 'src/app/services/authjwt.service';
 
 
 @Component({
@@ -26,12 +27,14 @@ export class HeaderComponent {
   constructor(
     private categoriesService: CategoriesService,
     private router: Router,
+    private authJWTService: AuthjwtService
   ){}
 
   ngOnInit(){
     this.categoriesService.getAllCategories().subscribe((newCategories) => {
       this.categories = newCategories;
     });
+    this.authJWTService.loadTokens();
   }
 
   sectionDetail(id: number){

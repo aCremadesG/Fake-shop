@@ -1,6 +1,9 @@
 <button id="dropdown-button" class="h-11 w-11 px-3 py-2 mx-1 border-yellow-200 hover:bg-yellow-500 bg-yellow-300 border-2 rounded">
     <i class="fa-solid fa-cart-shopping"></i>
 </button>
+<div>
+    
+</div>
 <div id="dropdown-list" class="absolute block opacity-0 bg-scroll bg-white divide-y divide-gray-100 overflow-y-auto rounded-lg shadow right-4 max-h-48 w-80 flex flex-col items-center border border-gray-300 -z-10">
     <div class="my-3 w-full flex">
         <label class="py-1 mx-2 w-full text-center bg-yellow-300">Productos añadidos a tu cesta</label>
@@ -8,17 +11,17 @@
     <div class="mb-3 w-full flex">
         <label class="w-full text-center">Subtotal: {{cart.totalPrice | currency:'EUR'}}</label>
     </div>
-    <div class="w-full pb-3" *ngFor="let product of cart.items">
+    <div class="w-full py-2" *ngFor="let product of cart.items, index as i">
         <div class="mx-2 flex flex-row justify-between">
-            <img class="w-16 h-16" [src]="product.product.images[0]">
-            <div class="flex flex-col">
-                <label>Classic Red Pullover Hoodie</label>
+            <img class="w-16 h-16 mt-2" [src]="product.product.images[0]">
+            <div class="flex flex-col w-52">
+                <label class="truncate">{{product.product.title}}</label>
                 <div class="flex flex-row justify-between">
                     <label>{{product.product.price | currency:'EUR'}}</label>
                     <div class="w-auto">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="changeAmount(product.product.id)" class="px-2 border bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-s-lg quantity-add"><i class="fa-solid fa-minus"></i></button>
-                        <input id="amount" class="appearance-none text-center border border-gray-300" type="number" required [value]="product.amount" min="0" max="10">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="changeAmount(product.product.id)" id="subs-one" class="px-2 border bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-e-lg quantity-remove"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" (click)="changeAmount(product.product.id, i)" class="px-2 border bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-s-lg quantity-add"><i class="fa-solid fa-minus"></i></button>
+                        <input id="{{'amount' + i}}" class="appearance-none text-center border border-gray-300" type="number" required [value]="product.amount" min="0" max="10">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" (click)="changeAmount(product.product.id, i)" id="subs-one" class="px-2 border bg-yellow-300 hover:bg-yellow-500 border-gray-300 rounded-e-lg quantity-remove"><i class="fa-solid fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="flex flex-row justify-between">

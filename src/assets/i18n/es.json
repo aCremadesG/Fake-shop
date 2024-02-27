@@ -19,5 +19,11 @@
     },
     "LOGIN": {
         "FAILED_LOGIN": "Mail o contraseña incorrecto"
+    },
+    "PRODUCT": {
+        "400": "Este producto no existe"
+    },
+    "CATEGORY": {
+        "400": "Esta categoria no existe"
     }
 }

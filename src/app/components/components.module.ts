@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { ShoppingCartDropdownComponent } from './shopping-cart-dropdown/shopping-cart-dropdown.component';
 import { UserDropdownComponent } from './user-dropdown/user-dropdown.component';
 import { LogInToastComponent } from './log-in-toast/log-in-toast.component';
+import { ErrorToastComponent } from './error-toast/error-toast.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -31,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShoppingCartDropdownComponent,
     UserDropdownComponent,
     LogInToastComponent,
+    ErrorToastComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BuyingCardComponent,
     ShoppingCartDropdownComponent,
     UserDropdownComponent,
-    LogInToastComponent
+    LogInToastComponent,
+    ErrorToastComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,4 +1,4 @@
-<main class="min-h-screen border-t border-gray-300 pt-4 justify-center md:items-center flex flex-col" *ngIf="product != undefined">
+<main class="min-h-screen border-t border-gray-300 pt-4 justify-center md:items-center flex flex-col" *ngIf="product.id !== undefined">
     <div class="w-full lg:w-3/4 flex flex-col justify-between md:flex-row">
         <div class="w-full md:w-6/12" *ngIf="product.images">
             <img [src]="product.images[0]">
@@ -18,3 +18,5 @@
         <label>images carrousel</label>
     </section>
 </main>
+
+<main class="min-h-screen" *ngIf="product.id === undefined"></main>

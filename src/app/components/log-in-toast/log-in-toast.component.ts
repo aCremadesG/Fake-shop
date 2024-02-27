@@ -50,9 +50,13 @@ export class LogInToastComponent {
 
   getUser(){
     this.authjwtService.getUser().pipe(
-
+      catchError(err => {
+        console.log(err);
+        return EMPTY;
+      })
     ).subscribe((userData) =>{
       this.authjwtService.saveUser(userData);
+      this.authjwtService.renewTokens();
     })
   }
 }

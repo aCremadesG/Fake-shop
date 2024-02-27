@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Category } from '../interfaces/category';
 import { NewCategory } from '../interfaces/new-category';
 import { Product } from '../interfaces/product';
+import { CategoriesErrorHandler } from '../classes/categories-error-handler';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Product } from '../interfaces/product';
 export class CategoriesService {
 
   private apiUrl = environment.apiUrl
-
+  private categoriesErrorHandler: CategoriesErrorHandler = new CategoriesErrorHandler();
   constructor(
     private http: HttpClient
   ) { }
@@ -22,7 +23,7 @@ export class CategoriesService {
   }
 
   getCategory(idCategory: string): Observable<Category> {
-    return this.http.get<Category>(`${this.apiUrl}categories/${idCategory}`);
+    return this.http.get<Category>(`${this.apiUrl}categories/${idCategory}`).pipe(catchError(this.categoriesErrorHandler.handleError));
   }
 
   createCategory(category: NewCategory): Observable<Category> {

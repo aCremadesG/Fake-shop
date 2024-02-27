@@ -2,10 +2,16 @@
     <i class="fa-solid fa-user"></i>
 </button>
 <div id="dropdown-list" class="absolute block opacity-0 bg-white divide-y divide-gray-100 overflow-y-auto w-40 right-4 rounded-lg shadow border border-gray-300 -z-10">
-    <div class="my-3 w-full flex">
-        <button (click)="openForm(0)"  onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Log In</button>
+    <div *ngIf="!user.returnLogged" class="my-3 w-full flex">
+        <button (click)="openForm(0)"  onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Log-In</button>
     </div>
-    <div class="my-3 w-full flex">
+    <div *ngIf="!user.returnLogged" class="my-3 w-full flex">
         <button (click)="openForm(1)" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Sign-In</button>
+    </div>
+    <div *ngIf="user.returnLogged" class="my-3 w-full flex">
+        <button (click)="openForm(1)" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Profile</button>
+    </div>
+    <div *ngIf="user.returnLogged" class="my-3 w-full flex">
+        <button (click)="logOut()" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Log-Out</button>
     </div>
 </div>
