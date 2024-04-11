@@ -1,0 +1,31 @@
+<main class="min-h-screen flex flex-col items-center">
+    <div class="border-2 rounded border-solid border-slate-300 w-3/4 mt-8 flex flex-col items-center py-4">
+        <div class="flex justify-center w-full bg-gradient-to-t from-yellow-300 to-white to-50% from-50% pb-4">
+            <img class="rounded-full" [src]="user.avatar">
+        </div>
+        <div class="w-4/5">
+            <form [formGroup]="userForm" (ngSubmit)="userModify()">
+                <div class="flex flex-col my-3">
+                    <label class="text-xl">Email</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="email" type="email">
+                </div>
+                <div class="flex flex-col my-3">
+                    <label class="text-xl">Password</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="password" type="password">
+                </div>
+                <div class="flex flex-col my-3" *ngIf="userForm.value.password !== user.password">
+                    <label class="text-xl">Repeat Password</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="repeatPassword" type="password">
+                </div>
+                <div class="flex flex-col my-3">
+                    <label class="text-xl">Name</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="username">
+                </div>
+                <div class="flex flex-row justify-around">
+                    <button [disabled]="!userForm.dirty" (click)="resetProfile()" type="button" class="py-2 px-8 w-32 disabled:bg-yellow-200 border-yellow-200 bg-yellow-300 border-2 rounded">Reset</button>
+                    <button [disabled]="!userForm.valid || !userForm.dirty" type="submit" class="py-2 px-8 w-32 disabled:bg-yellow-200 border-yellow-200 bg-yellow-300 border-2 rounded">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

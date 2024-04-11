@@ -65,12 +65,19 @@ export class AuthjwtService {
   renewTokens(){
     const now = dayjs();
     if(now.isBefore(this.renewDate) && now.isAfter(this.renewDate.subtract(1, 'h'))){
-      this.refreshAccessToken(this.user.returnRefreshToken).subscribe((data) => {this.saveTokens(data)})
-      this.renewTokens();
+      console.log("1");
+      this.refreshAccessToken(this.user.returnRefreshToken).subscribe((data) => {
+        this.saveTokens(data);
+        this.renewTokens();
+      })
     }else if(now.isBefore(this.renewDate) && now.isAfter(this.renewDate.subtract(9,'h'))){
-      this.refreshAccessToken(this.user.returnRefreshToken).pipe(delay(this.renewDate.subtract(1,'h').date())).subscribe((data) => {this.saveTokens(data)})
-      this.renewTokens();
+      console.log("2");
+      this.refreshAccessToken(this.user.returnRefreshToken).pipe(delay(this.renewDate.subtract(1,'h').date())).subscribe((data) => {
+        this.saveTokens(data);
+        this.renewTokens();
+      })
     }else if(now.isBefore(this.renewDate.subtract(9,'h'))){
+      console.log("3");
       interval(9*60*60*1000).subscribe((data) => {this.refreshAccessToken(this.user.returnRefreshToken).subscribe((data) => {this.saveTokens(data)})})
     }
   }

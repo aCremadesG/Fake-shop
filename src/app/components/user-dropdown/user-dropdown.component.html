@@ -9,7 +9,7 @@
         <button (click)="openForm(1)" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Sign-In</button>
     </div>
     <div *ngIf="user.returnLogged" class="my-3 w-full flex">
-        <button (click)="openForm(1)" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Profile</button>
+        <button (click)="redirectTo('profile')" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Profile</button>
     </div>
     <div *ngIf="user.returnLogged" class="my-3 w-full flex">
         <button (click)="logOut()" onclick="this.blur()" class="py-1 mx-2 w-full text-center bg-yellow-300 hover:bg-yellow-500">Log-Out</button>

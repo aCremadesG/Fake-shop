@@ -25,7 +25,6 @@ export class HomeComponent {
   ngOnInit() {
     this.productsService.paginateProducts(0,this.section.size).subscribe((_products) =>{
       this.section.products = _products;
-      console.log('test');
     })
     this.categoriesService.getAllCategories().subscribe((newCategories) => {
       this.categories = newCategories;

@@ -14,6 +14,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import localeEs from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localeEs, 'es')
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SectionComponent,
     ProductComponent,
     CartViewComponent,
+    ProfileComponent,
   ],
   imports: [
     ComponentsModule,
@@ -34,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {

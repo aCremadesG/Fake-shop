@@ -16,7 +16,7 @@ export class ProductCardComponent {
   @Input() product = {} as Product;
 
   productDetail(id: number){
-    this.router.navigate([`product`],{
+    this.router.navigate([`product/${this.product.title}`],{
       queryParams: {id: id}
     })
   }
