@@ -17,7 +17,6 @@ export class DropdownMenuComponent {
   ]
 
   setOption(name: string){
-    console.log("test");
     this.selectedOption = name;
   }
 }

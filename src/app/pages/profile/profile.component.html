@@ -12,10 +12,20 @@
                 <div class="flex flex-col my-3">
                     <label class="text-xl">Password</label>
                     <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="password" type="password">
+                                <div *ngIf="password!.invalid && (password!.dirty || password!.touched)">
+                    <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="password!.errors?.['required']"><p>Debe introducir una contraseña</p></div>
+                    <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="password!.errors?.['minlength']"><p>La contraseña debe de tener como minimo 8 caracteres de longitud</p></div>
+                    <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="password!.errors?.['passwordStrength']"><p>La contraseña debe de tener como minimo un caracter especial, una minuscula y una mayuscula</p></div>
+                </div>
                 </div>
                 <div class="flex flex-col my-3" *ngIf="userForm.value.password !== user.password">
                     <label class="text-xl">Repeat Password</label>
                     <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="repeatPassword" type="password">
+                    <div *ngIf="repeatPassword!.invalid && (repeatPassword!.dirty || repeatPassword!.touched)">
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="repeatPassword!.errors?.['required']"><p>Debe introducir una contraseña</p></div>
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="repeatPassword!.errors?.['minlength']"><p>La contraseña debe de tener como minimo 8 caracteres de longitud</p></div>
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="repeatPassword!.errors?.['notEqual']"><p>La contraseña debe ser identica a la anterior</p></div>
+                    </div>
                 </div>
                 <div class="flex flex-col my-3">
                     <label class="text-xl">Name</label>

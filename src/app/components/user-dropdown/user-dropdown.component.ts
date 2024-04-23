@@ -19,7 +19,6 @@ export class UserDropdownComponent {
     private router: Router,
   ){
     this.subscription = this.authJWTService.getLocalUser().subscribe(res => {
-      console.log(res);
       this.user = res.user
     })
   }
