@@ -1,6 +1,6 @@
 <main class="min-h-screen">
-    <div>
-        <app-carousel [newCategories]="categories"></app-carousel>
+    <div *ngIf="!carrouselData.empty">
+        <app-carousel [newImages]="carrouselData"></app-carousel>
     </div>
     <div>
         <app-products-group [section]="section"></app-products-group>

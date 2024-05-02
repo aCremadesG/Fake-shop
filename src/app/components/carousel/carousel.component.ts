@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category } from 'src/app/interfaces/category';
+import { Carrousel } from 'src/app/interfaces/carrousel';
 
 @Component({
   selector: 'app-carousel',
@@ -11,12 +11,12 @@ export class CarouselComponent {
 
   ){}
 
-  categories = [] as Category[];
+  carrouselData = {} as Carrousel;
   carouselIndex: number = 0;
   maxIndex: number = 0;
-  @Input() set newCategories(value: Category[]){
-    this.categories = value;
-    this.maxIndex = this.categories.length - 1;
+  @Input() set newImages(value: Carrousel){
+    this.carrouselData = value;
+    this.maxIndex = this.carrouselData.images.length - 1;
   }
 
   carouselPrev(){

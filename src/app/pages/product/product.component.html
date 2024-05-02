@@ -1,5 +1,5 @@
-<main class="min-h-screen border-t border-gray-300 pt-4 justify-center md:items-center flex flex-col" *ngIf="product.id !== undefined">
-    <div class="w-full lg:w-3/4 flex flex-col justify-between md:flex-row">
+<main class="min-h-screen border-t border-gray-300 pt-4 md:items-center" *ngIf="product.id !== undefined">
+    <div class="w-full lg:w-3/4 flex flex-col justify-between md:flex-row mx-auto">
         <div class="w-full md:w-6/12" *ngIf="product.images">
             <img [src]="product.images[0]">
         </div>
@@ -10,12 +10,12 @@
             </div>
         </div>
     </div>
-    <section class="w-full lg:w-3/4 flex flex-col px-4 md:px-0">
-        <label class="test-xl">Descripción:</label>
+    <section class="w-full lg:w-3/4 flex flex-col px-4 pt-4 md:px-0 mx-auto">
+        <label class="text-xl">Descripción:</label>
         <label class="text-xl">{{product.description}}</label>
     </section>
-    <section class="w-full lg:w-3/4 flex px-4 md:px-0">
-        <label>images carrousel</label>
+    <section class="lg:w-3/4 w-full mx-auto">
+        <app-carousel [newImages]="carrouselData"></app-carousel>
     </section>
 </main>
 

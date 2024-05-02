@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, delay, interval, Subject } from 'rxjs';
+import { Observable, catchError, delay, interval, Subject, BehaviorSubject } from 'rxjs';
 import { JwtTokens } from '../interfaces/jwt-tokens';
 import { User } from '../interfaces/user';
 import { LocalStorageService } from './local-storage.service';
@@ -15,9 +15,9 @@ dayjs().format()
 })
 export class AuthjwtService {
 
-  private subject = new Subject<any>();
   private apiUrl = environment.apiUrl
   private user: LocalUser = new LocalUser();
+  private subject = new BehaviorSubject<any>({user: this.user});
   private renewDate: dayjs.Dayjs = dayjs();
   private loginErrorHandler: LoginErrorHandler = new LoginErrorHandler();
 
@@ -124,6 +124,10 @@ export class AuthjwtService {
 
   getLocalUser(): Observable<any> {
     return this.subject.asObservable();
+  }
+
+  isAuthenticatedUser(){
+    return this.user.returnLogged;
   }
 
 }

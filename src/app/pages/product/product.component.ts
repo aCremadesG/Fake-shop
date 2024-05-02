@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, catchError } from 'rxjs';
+import { Carrousel } from 'src/app/interfaces/carrousel';
 import { Product } from 'src/app/interfaces/product';
 import { ErrorAlertService } from 'src/app/services/error-alert.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -19,6 +20,7 @@ export class ProductComponent {
   ){}
 
   product = {} as Product;
+  carrouselData = {empty: true} as Carrousel;
 
   ngOnInit(): void {
     this.getQueryParams()
@@ -41,6 +43,9 @@ export class ProductComponent {
       })
     ).subscribe((newProduct) => {
       this.product = newProduct
+      this.carrouselData.images = newProduct.images;
+      this.carrouselData.type = "product"
+      this.carrouselData.empty = false;
     })
   }
 }

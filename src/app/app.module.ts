@@ -16,6 +16,7 @@ import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
 registerLocaleData(localeEs, 'es')
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductComponent,
     CartViewComponent,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     ComponentsModule,

@@ -15,6 +15,7 @@ import { ShoppingCartDropdownComponent } from './shopping-cart-dropdown/shopping
 import { UserDropdownComponent } from './user-dropdown/user-dropdown.component';
 import { LogInToastComponent } from './log-in-toast/log-in-toast.component';
 import { ErrorToastComponent } from './error-toast/error-toast.component';
+import { PasswordGroupComponent } from './forms/password-group/password-group.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserDropdownComponent,
     LogInToastComponent,
     ErrorToastComponent,
+    PasswordGroupComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShoppingCartDropdownComponent,
     UserDropdownComponent,
     LogInToastComponent,
-    ErrorToastComponent
+    ErrorToastComponent,
+    PasswordGroupComponent
   ]
 })
 export class ComponentsModule { }

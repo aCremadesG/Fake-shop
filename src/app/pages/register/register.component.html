@@ -1,0 +1,29 @@
+<main class="min-h-screen flex flex-col items-center">
+    <div class="border-2 rounded border-solid border-slate-300 w-3/4 mt-8 flex flex-col items-center py-4">
+        <p>register works!</p>
+        <div class="w-4/5">
+            <form [formGroup]="userForm" (ngSubmit)="newUser()">
+                <div class="flex flex-col my-3">
+                    <label class="text-xl">Name</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="username">
+                    <div *ngIf="username!.invalid && (username!.dirty || username!.touched)">
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="username!.errors?.['required']"><p>Debe introducir un nombre de usuario</p></div>
+                    </div>
+                </div>
+                <div class="flex flex-col my-3">
+                    <label class="text-xl">Email</label>
+                    <input class="text-xl border-2 rounded border-solid border-slate-300 p-2" formControlName="email" type="email">
+                    <div *ngIf="email!.invalid && (email!.dirty || email!.touched)">
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="email!.errors?.['required']"><p>Debe introducir un email</p></div>
+                        <div class="p-2 bg-red-500 rounded w-80 mt-2" *ngIf="email!.errors?.['email']"><p>Debe introducir un email valido</p></div>
+                    </div>
+                </div>
+                <app-password-group [userPassword]="''"></app-password-group>
+                <div class="flex flex-row justify-around">
+                    <button [disabled]="!userForm.dirty" (click)="resetProfile()" type="button" class="py-2 px-8 w-32 disabled:bg-yellow-200 border-yellow-200 bg-yellow-300 border-2 rounded">Reset</button>
+                    <button [disabled]="!userForm.valid || !userForm.dirty" type="submit" class="py-2 px-8 w-32 disabled:bg-yellow-200 border-yellow-200 bg-yellow-300 border-2 rounded">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
